@@ -88,7 +88,7 @@
         <param name="do_planar_update" type="bool" value="false"/>
 
         <!-- Write an output -->
-        <param name="calibration_result_filename" type="string" value="/home/usl/catkin_ws/src/imu_lidar_calibration/linkalibr/data/I_T_L_far.txt"/>
+        <param name="calibration_result_filename" type="string" value="/home/usl/catkin_ws/src/imu_lidar_calibration/linkalibr/data/I_T_L_final.txt"/>
 
        <!-- location to store cloud -->
        <param name="raw_scan_folder_name" type="string" value="/home/usl/catkin_ws/src/linkalibr/scans/raw"/>
