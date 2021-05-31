@@ -64,7 +64,7 @@ Some more figures...
 #### Estimated IMU Trajectory
 ![alt text](https://github.com/SubMishMar/imu_lidar_calibration/blob/main/figures/trajectoryXYZ.jpg?raw=true)
 
-### Estimated IMU Velocity
+#### Estimated IMU Velocity
 ![alt text](https://github.com/SubMishMar/imu_lidar_calibration/blob/main/figures/IMUVelocityXYZ.jpg?raw=true)
 
 #### Result of scan matching using motion compensated scans
