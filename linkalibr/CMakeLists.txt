@@ -93,9 +93,6 @@ target_include_directories(linkalibr_lib PUBLIC src)
 add_executable(ros_test_node src/ros_linkalibr_test.cpp)
 target_link_libraries(ros_test_node linkalibr_lib ${catkin_LIBRARIES})
 
-add_executable(ros_imu_test src/ros_imu_test.cpp)
-target_link_libraries(ros_imu_test ${catkin_LIBRARIES})
-
 add_executable(ros_ndt_lodom src/ros_ndt_lodom.cpp)
 target_link_libraries(ros_ndt_lodom linkalibr_lib ${catkin_LIBRARIES})
 
