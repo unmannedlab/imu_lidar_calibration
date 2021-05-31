@@ -16,7 +16,12 @@ This code base was tested an implemented in a Ubuntu 16.04 system.
 - Clone the source code for [ndt_omp](https://github.com/APRIL-ZJU/ndt_omp) and build it in your catkin workspace
 - Clone this code-base and build it in your catkin workspace
 
-## Example
+## Usage
 
-Currently this codebase supports `Ouster-128` but it is easy to expand for other LiDARs. 
+Currently this code-base supports `Ouster-128` but it is easy to expand for other 3D Lidars. We have tested this code-base by downsampling our `Ouster 128` lidar to 64, 32, 16 channel modes.
+
+### Inter-sensor rotation estimation
+`roslaunch linkalibr ros_calib_init.launch`
+### Inter-sensor translation estimation
+`roslaunch linkalibr linkalibr_ouster_vectornav.launch`
 
