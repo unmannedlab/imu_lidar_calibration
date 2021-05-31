@@ -17,6 +17,7 @@ hold off;
 ylabel('v_x');
 grid;
 title('v_x time plot');
+legend('Estimate', '1 \sigma bound');
 subplot(312)
 plot(velocity(:,2), 'LineWidth', 3);
 hold on;
@@ -27,6 +28,7 @@ hold off;
 ylabel('v_y');
 grid;
 title('v_y time plot');
+legend('Estimate', '1 \sigma bound');
 subplot(313)
 plot(velocity(:,3), 'LineWidth', 3);
 hold on;
@@ -37,3 +39,4 @@ hold off;
 ylabel('v_z');
 grid;
 title('v_z time plot');
+legend('Estimate', '1 \sigma bound');
