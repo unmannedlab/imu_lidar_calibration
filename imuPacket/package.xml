@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+  <name>imuPacket</name>
+  <version>1.0.0</version>
+  <description>IMU packet msg</description>
+
+  <maintainer email="xxx@xxx.xxx">S M</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>message_runtime</build_depend>
+  <build_depend>message_generation</build_depend>
+
+  <run_depend>message_generation</run_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+
+  <export>
+
+  </export>
+</package>

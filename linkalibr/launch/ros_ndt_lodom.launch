@@ -1,0 +1,21 @@
+<launch>
+
+    <node name="ros_ndt_lodom" pkg="linkalibr" type="ros_ndt_lodom" output="screen" clear_params="true" required="true">
+        <!-- bag topics -->
+        <param name="topic_imu"    type="string" value="/vectornav/IMU_uncompensated" />
+        <param name="topic_lidar"    type="string" value="/os_cloud_node/points" />
+
+        <!-- bag parameters -->
+        <param name="path_bag"    type="string" value="/home/usl/datasets/ouster_vectornav.bag" />
+        <param name="bag_start"   type="double" value="0" />
+        <param name="bag_durr"    type="int"    value="-1" />
+
+        <!-- lo_trajectory_filename -->
+        <param name="lo_trajectory_filename" type="string" value="/home/usl/catkin_ws/src/linkalibr/data/lo_trajectory.csv"/>
+
+        <!-- NDT Resolution -->
+        <param name="ndt_resolution" type="double" value="0.25"/>
+
+    </node>
+
+</launch>

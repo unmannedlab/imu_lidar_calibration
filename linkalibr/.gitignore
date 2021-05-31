@@ -1,0 +1,14 @@
+*.idea/
+*cmake-build-debug
+*scans/
+*data/imu_test_data.csv
+*data/forOptimization/plane_params.csv
+*data/forOptimization/planar_points.csv
+*data/forOptimization/imu_trajectory.csv
+*data/forOptimization/imu_measurements.csv
+*data/forOptimization/imu_trajectory_out.csv
+*data/forOptimization/planar_points_deskewed.csv
+*data/forOptimization/planar_points_raw_scans.csv
+*data/forOptimization/planar_points_deskewed_map.csv
+*data/forOptimization/planar_points_deskewed_preint.csv
+*data/forOptimization/surfel_map.csv

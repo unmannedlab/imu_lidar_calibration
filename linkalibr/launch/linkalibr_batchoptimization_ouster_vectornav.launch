@@ -1,0 +1,23 @@
+<launch>
+    <node name="ros_batchoptimizer" pkg="linkalibr" type="ros_batchoptimizer" output="screen" clear_params="true" required="true">
+
+            <param name="plane_params_csv_filename" type="string" value="$(find linkalibr)/data/forOptimization/plane_params.csv" />
+            <param name="imu_trajectory_csv_filename" type="string" value="$(find linkalibr)/data/forOptimization/imu_trajectory.csv" />
+            <param name="imu_trajectory_out_csv_filename" type="string" value="$(find linkalibr)/data/forOptimization/imu_trajectory_out.csv" />
+            <param name="imu_velocity_out_csv_filename" type="string" value="$(find linkalibr)/data/forOptimization/imu_velocity_out.csv" />
+            <param name="imu_measurements_csv_filename" type="string" value="$(find linkalibr)/data/forOptimization/imu_measurements.csv" />
+            <param name="planar_points_csv_filename" type="string" value="$(find linkalibr)/data/forOptimization/planar_points_raw_scans.csv" />
+            <param name="planar_points_deskewed_csv_filename" type="string" value="$(find linkalibr)/data/forOptimization/planar_points_deskewed_preint_map.csv" />
+            <param name="initial_calib_filename" type="string" value="$(find linkalibr)/data/I_T_L_far1.txt" />
+            <param name="init_calib_csv_filename" type="string" value="$(find linkalibr)/data/forOptimization/init_calib_csv.csv" />
+            <param name="final_calib_csv_filename" type="string" value="$(find linkalibr)/data/forOptimization/final_calib_csv.csv" />
+
+            <!-- IMU Noise Parameters -->
+<!--             <param name="accelerometer_noise_density"  type="double"   value="0.00094666" /> -->
+<!--             <param name="accelerometer_random_walk"    type="double"   value="0.00278617" /> -->
+            <param name="accelerometer_noise_density"  type="double"   value="0.094666" />
+            <param name="accelerometer_random_walk"    type="double"   value="0.278617" />
+            <param name="gyroscope_noise_density"      type="double"   value="0.006243" />
+            <param name="gyroscope_random_walk"        type="double"   value="0.000046" />
+    </node>
+</launch>

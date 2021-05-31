@@ -1,0 +1,21 @@
+<launch>
+
+
+    <!-- MASTER NODE! -->
+    <node name="ros_imu_test" pkg="linkalibr" type="ros_imu_test" output="screen" clear_params="true" required="true">
+        <!-- bag topics -->
+        <!--<param name="topic_imu"    type="string" value="/os_cloud_node/imu" />-->
+        <param name="topic_imu"    type="string" value="/vectornav/IMU" />
+        <!-- bag parameters -->
+        <!--<param name="path_bag"    type="string" value="/home/usl/datasets/latency_0ms.bag" /> -->
+        <!--<param name="path_bag"    type="string" value="/home/usl/datasets/latency_0ms_5min.bag" /> -->
+        <param name="path_bag"    type="string" value="/home/usl/datasets/2021-03-09-16-06-48.bag" />
+        <param name="bag_start"   type="double" value="0" />
+        <param name="bag_durr"    type="int"    value="-1" />
+
+        <!-- lo_trajectory_filename -->
+        <param name="imu_data_filename" type="string" value="/home/usl/catkin_ws/src/linkalibr/data/imu_test_data.csv"/>
+
+    </node>
+
+</launch>
