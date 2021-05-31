@@ -31,5 +31,7 @@ Please take care to change the file path names.
 The results are stored in folder `data` as a homogenous transformation matrix in text file `I_T_L_final.txt`
 
 ## Plots
+We can plot the results of the EKF based estimation process by using the MATLAB plot files available in folder `linkalibr/data`. The plot for calibration parameters is shown below:
+![alt text](https://github.com/SubMishMar/imu_lidar_calibration/blob/master/figures/calibXYZ.jpg?raw=true)
 
 
