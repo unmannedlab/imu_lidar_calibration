@@ -23,7 +23,7 @@ As far the 3D Lidar is considered, currently this code-base supports `Ouster-128
 ### Data collection for extrinsic calibration
 We need to excite all degrees of freedom during collecting data required for extrinsic calibration. An example video can be found here: 
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=v=2IX5LVTDkLc
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=2IX5LVTDkLc
 " target="_blank"><img src="http://img.youtube.com/vi/v=2IX5LVTDkLc/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
