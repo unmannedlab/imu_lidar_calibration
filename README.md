@@ -6,7 +6,7 @@
 This repository is a toolkit for calibrating the 6-DoF rigid transformation between a 3D LIDAR and an IMU. It's based on an Extended Kalman Filter based algorithm which exploits the motion based calibration constraint for state update. This algorithm does not depend on any calibration target or special environmental features, like planes.
 
 ## Prerequisites 
-This code base was tested an implemented in a Ubuntu 16.04 system.
+This code base was tested and implemented in a Ubuntu 16.04 system.
 - [ROS](http://wiki.ros.org/ROS/Installation) (tested with Kinetic)
 - [GTSAM](https://gtsam.org/build/) (The code in the paper uses [Ceres](http://ceres-solver.org/installation.html), I will soon use it here too)
 - [ndt_omp](https://github.com/APRIL-ZJU/ndt_omp) 
