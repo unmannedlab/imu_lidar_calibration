@@ -40,7 +40,7 @@ I am working on making this code more generic, until then please take care to ch
 `roslaunch linkalibr linkalibr_ouster_vectornav.launch`
 I am working on making this code more generic, until then please take care to change the file path names.
 
-The results are stored in folder `data` as a homogenous transformation matrix in text file `I_T_L_final.txt`
+The results are stored in folder `linkalibr/data` as a homogenous transformation matrix in text file `I_T_L_final.txt`
 
 ## Plots
 We can plot the results of the EKF based estimation process by using the MATLAB plot files available in folder `linkalibr/data`. 
