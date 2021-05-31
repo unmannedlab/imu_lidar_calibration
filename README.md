@@ -69,3 +69,7 @@ Some more figures...
 
 #### Result of scan matching using motion compensated scans
 ![alt text](https://github.com/SubMishMar/imu_lidar_calibration/blob/main/figures/map.png?raw=true)
+
+
+## Acknowledgement
+This codebase was developed under the [OpenVINS](https://github.com/rpng/open_vins) framework.
