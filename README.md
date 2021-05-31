@@ -28,7 +28,7 @@ Please take care to change the file path names.
 `roslaunch linkalibr linkalibr_ouster_vectornav.launch`
 Please take care to change the file path names.
 
-The results are stored in folder `data` as a homogenous transformation matrix in text file 'I_T_L_final.txt'
+The results are stored in folder `data` as a homogenous transformation matrix in text file `I_T_L_final.txt`
 
 ## Plots
 
