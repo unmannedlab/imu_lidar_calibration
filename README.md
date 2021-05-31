@@ -30,11 +30,13 @@ We need to excite all degrees of freedom during collecting data required for ext
 " target="_blank"><img src="http://img.youtube.com/vi/v=2IX5LVTDkLc/0.jpg" 
 alt="Data collection procedure" width="240" height="180" border="10" /></a>
 
+Please find a sample dataset here to try out the algorithm yourself: https://drive.google.com/file/d/1o20lcmXU1HxOP4KsLXrXbjT2jTfjeaJh/view?usp=sharing
+
 ### Inter-sensor rotation estimation
 `roslaunch linkalibr ros_calib_init.launch`
 I am working on making this code more generic, until then please take care to change the file path names.
 
-### Inter-sensor translation estimation
+### Inter-sensor translation estimation 
 `roslaunch linkalibr linkalibr_ouster_vectornav.launch`
 I am working on making this code more generic, until then please take care to change the file path names.
 
