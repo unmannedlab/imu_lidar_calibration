@@ -62,10 +62,10 @@ The plot for calibration parameters is shown below:
 Some more figures...
 
 #### Estimated IMU Trajectory
-![alt text](https://github.com/SubMishMar/imu_lidar_calibration/blob/main/figures/IMUVelocityXYZ.jpg?raw=true)
+![alt text](https://github.com/SubMishMar/imu_lidar_calibration/blob/main/figures/trajectoryXYZ.jpg?raw=true)
 
 ### Estimated IMU Velocity
-![alt text](https://github.com/SubMishMar/imu_lidar_calibration/blob/main/figures/trajectoryXYZ.jpg?raw=true)
+![alt text](https://github.com/SubMishMar/imu_lidar_calibration/blob/main/figures/IMUVelocityXYZ.jpg?raw=true)
 
 #### Result of scan matching using motion compensated scans
 ![alt text](https://github.com/SubMishMar/imu_lidar_calibration/blob/main/figures/map.png?raw=true)
