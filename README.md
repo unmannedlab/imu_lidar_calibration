@@ -16,9 +16,13 @@ This code base was tested an implemented in a Ubuntu 16.04 system.
 - Clone the source code for [ndt_omp](https://github.com/APRIL-ZJU/ndt_omp) and build it in your catkin workspace
 - Clone this code-base and build it in your catkin workspace
 
-## Usage
+## Sensor suite
 
 As far the 3D Lidar is considered, currently this code-base supports `Ouster-128` but it is easy to expand for other 3D Lidars. We have tested this code-base by downsampling our `Ouster 128` lidar to 64, 32, 16 channel modes. The important pre-requisite is that the points in lidar pointcloud must come with a measurement/firing timestamp. We use a Vectornav VN 300 IMU. 
+
+![alt text](https://github.com/SubMishMar/imu_lidar_calibration/blob/main/figures/lidar_imu_setup.png?raw=true)
+
+## Procedure
 
 ### Data collection for extrinsic calibration
 We need to excite all degrees of freedom during collecting data required for extrinsic calibration. An example video can be found here: 
