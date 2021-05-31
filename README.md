@@ -33,10 +33,12 @@ alt="Data collection procedure" width="240" height="180" border="10" /></a>
 Please find a sample dataset here to try out the algorithm yourself: https://drive.google.com/file/d/1o20lcmXU1HxOP4KsLXrXbjT2jTfjeaJh/view?usp=sharing
 
 ### Inter-sensor rotation estimation
+![alt text](https://github.com/SubMishMar/imu_lidar_calibration/blob/main/figures/RotHEC.png?raw=true)
 `roslaunch linkalibr ros_calib_init.launch`
 I am working on making this code more generic, until then please take care to change the file path names.
 
 ### Inter-sensor translation estimation 
+![alt text](https://github.com/SubMishMar/imu_lidar_calibration/blob/main/figures/KFBlock.png?raw=true)
 `roslaunch linkalibr linkalibr_ouster_vectornav.launch`
 I am working on making this code more generic, until then please take care to change the file path names.
 
