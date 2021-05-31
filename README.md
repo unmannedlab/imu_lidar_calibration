@@ -22,6 +22,14 @@ Currently this code-base supports `Ouster-128` but it is easy to expand for othe
 
 ### Inter-sensor rotation estimation
 `roslaunch linkalibr ros_calib_init.launch`
+Please take care to change the file path names.
+
 ### Inter-sensor translation estimation
 `roslaunch linkalibr linkalibr_ouster_vectornav.launch`
+Please take care to change the file path names.
+
+The results are stored in folder `data` as a homogenous transformation matrix in text file 'I_T_L_final.txt'
+
+## Plots
+
 
