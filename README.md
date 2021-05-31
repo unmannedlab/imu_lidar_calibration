@@ -8,7 +8,7 @@ This repository is a toolkit for calibrating the 6-DoF rigid transformation betw
 ## Prerequisites 
 This code base was tested an implemented in a Ubuntu 16.04 system.
 - [ROS](http://wiki.ros.org/ROS/Installation) (tested with Kinetic)
-- [GTSAM](https://gtsam.org/build/) (This will be soon replaced by [Ceres](http://ceres-solver.org/installation.html))
+- [GTSAM](https://gtsam.org/build/) (The code in the paper uses [Ceres](http://ceres-solver.org/installation.html), I will change it asap)
 - [ndt_omp](https://github.com/APRIL-ZJU/ndt_omp) 
 
 ## Install
@@ -18,18 +18,22 @@ This code base was tested an implemented in a Ubuntu 16.04 system.
 
 ## Usage
 
-As far the 3D Lidar is considered, currently this code-base supports `Ouster-128` but it is easy to expand for other 3D Lidars. We have tested this code-base by downsampling our `Ouster 128` lidar to 64, 32, 16 channel modes. The important pre-requisite is that the points in lidar pointcloud must come with a measurement/firing timestamp. We use a Vectornav VN 300 IMU.
+As far the 3D Lidar is considered, currently this code-base supports `Ouster-128` but it is easy to expand for other 3D Lidars. We have tested this code-base by downsampling our `Ouster 128` lidar to 64, 32, 16 channel modes. The important pre-requisite is that the points in lidar pointcloud must come with a measurement/firing timestamp. We use a Vectornav VN 300 IMU. 
 
 ### Data collection for extrinsic calibration
 We need to excite all degrees of freedom during collecting data required for extrinsic calibration. An example video can be found here: 
 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=v=2IX5LVTDkLc
+" target="_blank"><img src="http://img.youtube.com/vi/v=2IX5LVTDkLc/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+
 ### Inter-sensor rotation estimation
 `roslaunch linkalibr ros_calib_init.launch`
-Please take care to change the file path names.
+I am working on making this code more generic, until then please take care to change the file path names.
 
 ### Inter-sensor translation estimation
 `roslaunch linkalibr linkalibr_ouster_vectornav.launch`
-Please take care to change the file path names.
+I am working on making this code more generic, until then please take care to change the file path names.
 
 The results are stored in folder `data` as a homogenous transformation matrix in text file `I_T_L_final.txt`
 
