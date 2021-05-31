@@ -18,7 +18,7 @@ This code base was tested and implemented in a Ubuntu 16.04 system.
 
 ## Sensor suite
 
-As far the 3D Lidar is considered, currently this code-base supports `Ouster-128` but it is easy to expand for other 3D Lidars. We have tested this code-base by downsampling our `Ouster 128` lidar to 64, 32, 16 channel modes. The important pre-requisite is that the points in lidar pointcloud must come with a measurement/firing timestamp. We use a Vectornav VN 300 IMU. 
+As far the 3D Lidar is considered, currently this code-base supports `Ouster-128` but it is easy to expand for other 3D Lidars. We have tested this code-base by downsampling our `Ouster 128` lidar to 64, 32, 16 channel modes. The important pre-requisite is that the points in lidar pointcloud must come with a measurement/firing timestamp. We use a Vectornav VN 300 IMU. In our setup the Lidar outputs scans at 10 Hz and the IMU outputs measurements at 400 Hz, however, we have also tested our algorithm with IMU running at 50 Hz, 100 Hz & 200 Hz.
 
 ![alt text](https://github.com/SubMishMar/imu_lidar_calibration/blob/main/figures/lidar_imu_setup.png?raw=true)
 
