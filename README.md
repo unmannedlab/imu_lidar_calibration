@@ -6,6 +6,7 @@
 This repository is a toolkit for calibrating the 6-DoF rigid transformation between a 3D LIDAR and an IMU. It's based on an Extended Kalman Filter based algorithm which exploits the motion based calibration constraint for state update. This algorithm does not depend on any calibration target or special environmental features, like planes, for determining the extrinsic calibration between a 3D-Lidar and an IMU.
 
 [Presentation Video](https://youtu.be/VIc8XxNrymQ)
+
 [Paper](https://github.com/unmannedlab/imu_lidar_calibration/blob/main/paper/Target_free_Extrinsic_Calibration_of_a_3D_Lidar_and_an_IMU.pdf)
 
 ## Prerequisites 
