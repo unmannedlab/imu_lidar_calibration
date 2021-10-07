@@ -16,7 +16,8 @@ This code base was tested and implemented in a Ubuntu 16.04 system.
 - [Ceres - 1.14.0](http://ceres-solver.org/installation.html)
 - [ndt_omp](https://github.com/APRIL-ZJU/ndt_omp) 
 
-I am in the process of dockerizing this repository.
+I realized that it may be tedious to build this on newer Ubuntu, hence [docker](https://hub.docker.com/repository/docker/smishra30/imu-lidar-calib-docker-app). 
+
 ## Install
 
 - Clone the source code for [ndt_omp](https://github.com/APRIL-ZJU/ndt_omp) and build it in your catkin workspace
