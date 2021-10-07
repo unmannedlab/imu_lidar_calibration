@@ -13,7 +13,7 @@ This repository is a toolkit for calibrating the 6-DoF rigid transformation betw
 This code base was tested and implemented in a Ubuntu 16.04 system.
 - [ROS](http://wiki.ros.org/ROS/Installation) (tested with Kinetic)
 - [GTSAM - 4.0.3](https://gtsam.org/build/) 
-- [Ceres](http://ceres-solver.org/installation.html)
+- [Ceres - 1.14.0](http://ceres-solver.org/installation.html)
 - [ndt_omp](https://github.com/APRIL-ZJU/ndt_omp) 
 
 ## Install
