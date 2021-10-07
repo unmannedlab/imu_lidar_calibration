@@ -16,6 +16,7 @@ This code base was tested and implemented in a Ubuntu 16.04 system.
 - [Ceres - 1.14.0](http://ceres-solver.org/installation.html)
 - [ndt_omp](https://github.com/APRIL-ZJU/ndt_omp) 
 
+I am in the process of dockerizing this repository.
 ## Install
 
 - Clone the source code for [ndt_omp](https://github.com/APRIL-ZJU/ndt_omp) and build it in your catkin workspace
