@@ -7,7 +7,7 @@ This repository is a toolkit for calibrating the 6-DoF rigid transformation betw
 
 [Presentation Video](https://youtu.be/VIc8XxNrymQ)
 
-[Paper](https://github.com/unmannedlab/imu_lidar_calibration/blob/main/paper/Target_free_Extrinsic_Calibration_of_a_3D_Lidar_and_an_IMU.pdf)
+[Paper](https://arxiv.org/abs/2104.12280)
 
 ## Prerequisites 
 This code base was tested and implemented in a Ubuntu 16.04 system.
