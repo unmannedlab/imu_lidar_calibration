@@ -14,7 +14,7 @@ This code base was tested and implemented in a Ubuntu 16.04 system.
 - [ROS](http://wiki.ros.org/ROS/Installation) (tested with Kinetic)
 - [GTSAM - 4.0.3](https://gtsam.org/build/) 
 - [Ceres - 1.14.0](http://ceres-solver.org/installation.html)
-- [ndt_omp](https://github.com/APRIL-ZJU/ndt_omp) 
+- [ndt_omp](https://github.com/APRIL-ZJU/ndt_omp) [Caution: This has been found to be unstable in newer ubuntu]
 
 I realized that it may be tedious to build this on newer Ubuntu, hence [docker](https://hub.docker.com/repository/docker/smishra30/imu-lidar-calib-docker-app). Although I have provided the script to run this, basic knowledge of docker is necessary.
 
