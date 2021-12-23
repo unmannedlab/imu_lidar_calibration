@@ -30,6 +30,8 @@ As far the 3D Lidar is considered, currently this code-base supports `Ouster-128
 ![alt text](https://github.com/SubMishMar/imu_lidar_calibration/blob/main/figures/lidar_imu_setup.png?raw=true)
 
 ## Procedure
+### Intrinsic Calibration of IMU
+First of all, we need to determine the noise characterisitcs of the IMU biases. Several toolboxes are available online to determine this. We used https://github.com/rpng/kalibr_allan
 
 ### Data collection for extrinsic calibration
 We need to excite all degrees of freedom during collecting data required for extrinsic calibration. An example video can be found here: 
