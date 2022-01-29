@@ -31,7 +31,7 @@ As far the 3D Lidar is considered, currently this code-base supports `Ouster-128
 
 ## Procedure
 ### Intrinsic Calibration of IMU
-First of all, we need to determine the noise characterisitcs of the IMU biases. Several toolboxes are available online to determine this. We used https://github.com/rpng/kalibr_allan
+First of all, we need to determine the noise characterisitcs of the IMU biases. Several toolboxes are available online to determine this. We used https://github.com/rpng/kalibr_allan . This requires MATLAB. Other alternatives are: https://github.com/mintar/imu_utils , https://github.com/ori-drs/allan_variance_ros
 
 ### Data collection for extrinsic calibration
 We need to excite all degrees of freedom during collecting data required for extrinsic calibration. An example video can be found here: 
