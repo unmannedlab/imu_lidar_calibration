@@ -61,7 +61,7 @@ namespace lin_core {
         output_pc->resize(output_pc->width * output_pc->height);
         for(int h = 0; h < input_pc->height; h++) {
             for(int w = 0; w < input_pc->width; w++) {
-                if(pcl_isnan(input_pc->at(w,h).x)||pcl_isnan(input_pc->at(w,h).y)||pcl_isnan(input_pc->at(w,h).z))
+                if(isnan(input_pc->at(w,h).x)||isnan(input_pc->at(w,h).y)||isnan(input_pc->at(w,h).z))
                     continue;
                 lin_core::VPoint point;
                 point.x = input_pc->at(w,h).x;

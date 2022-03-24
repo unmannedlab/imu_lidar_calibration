@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.8)
+cmake_minimum_required(VERSION 3.10)
 # Project name
 project(linkalibr)
 set(CMAKE_CXX_STANDARD 14)
@@ -22,17 +22,19 @@ find_package(catkin QUIET COMPONENTS
         ndt_omp
         tf
         imuPacket
-        )
+        pcl_ros
+        pcl_conversions
+)
 
 # Include libraries
 find_package(Eigen3 REQUIRED)
 find_package(Boost REQUIRED COMPONENTS system filesystem thread date_time)
-find_package(PCL 1.7 REQUIRED)
+#find_package(PCL REQUIRED)
 #find_package(Ceres REQUIRED)
 find_package(GTSAM REQUIRED)
 
-link_directories(${PCL_LIBRARY_DIRS})
-add_definitions(${PCL_DEFINITIONS})
+#link_directories(${PCL_LIBRARY_DIRS})
+#add_definitions(${PCL_DEFINITIONS})
 
 # display message to user
 message(STATUS "EIGEN VERSION: " ${EIGEN3_VERSION})
@@ -56,7 +58,7 @@ include_directories(
         ${EIGEN3_INCLUDE_DIR}
         ${Boost_INCLUDE_DIRS}
         ${catkin_INCLUDE_DIRS}
-        ${PCL_INCLUDE_DIRS}
+#        ${PCL_INCLUDE_DIRS}
 #        ${CERES_INCLUDE_DIRS}
         ${GTSAM_INCLUDE_DIR}
 )
@@ -67,7 +69,7 @@ list(APPEND thirdparty_libraries
         ${catkin_LIBRARIES}
         ${PCL_LIBRARIES}
         ${CERES_LIBRARIES}
-        #        gtsam
+                gtsam
         )
 
 ##################################################
@@ -80,9 +82,7 @@ add_library(linkalibr_lib SHARED
         src/state/Propagator.cpp
         src/update/UpdaterLidarOdometry.cpp
         src/track/lidarOdometry.cpp
-        src/track/PlaneDetector.cpp
         src/core/lincalibManager.cpp
-        src/surfel_association/SurfelAssociation.cpp
         )
 target_link_libraries(linkalibr_lib ${thirdparty_libraries})
 target_include_directories(linkalibr_lib PUBLIC src)
@@ -93,17 +93,14 @@ target_include_directories(linkalibr_lib PUBLIC src)
 add_executable(ros_test_node src/ros_linkalibr_test.cpp)
 target_link_libraries(ros_test_node linkalibr_lib ${catkin_LIBRARIES})
 
-add_executable(ros_ndt_lodom src/ros_ndt_lodom.cpp)
-target_link_libraries(ros_ndt_lodom linkalibr_lib ${catkin_LIBRARIES})
-
 add_executable(ros_calib_init src/ros_calib_init.cpp)
 target_link_libraries(ros_calib_init linkalibr_lib ${catkin_LIBRARIES})
-
-add_executable(ros_calib_init_optimizer src/ros_calib_init_optimizer.cpp)
-target_link_libraries(ros_calib_init_optimizer
-        gtsam
-#        ${CERES_LIBRARIES}
-        ${catkin_LIBRARIES})
+#
+#add_executable(ros_calib_init_optimizer src/ros_calib_init_optimizer.cpp)
+#target_link_libraries(ros_calib_init_optimizer
+#        gtsam
+##        ${CERES_LIBRARIES}
+#        ${catkin_LIBRARIES})
 
 #add_executable(ros_batchoptimizer src/ros_batchoptimization.cpp
 #                                  src/batch_optimization/LoadPriorKnowledge.cpp

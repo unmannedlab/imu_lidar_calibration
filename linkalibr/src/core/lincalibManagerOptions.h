@@ -15,7 +15,6 @@
 #include <update/UpdaterOptions.h>
 #include <utils/color.h>
 #include <utils/quat_ops.h>
-#include <track/PlaneDetectorParams.h>
 
 #include <pcl/common/common.h>
 #include <pcl/io/pcd_io.h>

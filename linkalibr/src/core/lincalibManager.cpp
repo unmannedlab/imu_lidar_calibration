@@ -86,7 +86,7 @@ void lin_estimator::lincalibManager::do_undistortion(double timestamp,
             uint32_t point_timestamp = scan_raw.at(w, h).t;
             Eigen::Vector3d skewedPoint = Eigen::Vector3d(scan_point.x, scan_point.y, scan_point.z);
             /// Ignore NaNs
-            if(pcl_isnan(scan_point.x) || pcl_isnan(scan_point.y) || pcl_isnan(scan_point.z)) {
+            if(isnan(scan_point.x) || isnan(scan_point.y) || isnan(scan_point.z)) {
                 continue;
             }
 

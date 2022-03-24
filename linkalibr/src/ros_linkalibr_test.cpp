@@ -29,8 +29,6 @@
 
 #include "utils/pcl_utils.h"
 
-#include "surfel_association/SurfelAssociation.h"
-
 #include <pcl/visualization/cloud_viewer.h>
 
 using namespace lin_estimator;
@@ -52,7 +50,7 @@ void downSampleCloud(const pcl::PointCloud<lin_core::PointXYZIR8Y>::Ptr cloud_in
             if(cloud_point.ring%ring_downsample_factor != 0)
                 continue;
             /// Ignore points with NaNs
-            if(pcl_isnan(cloud_point.x) || pcl_isnan(cloud_point.y) || pcl_isnan(cloud_point.z)) {
+            if(isnan(cloud_point.x) || isnan(cloud_point.y) || isnan(cloud_point.z)) {
                 continue;
             }
             cloud_out_pcl->at(w, h) = cloud_point;
@@ -423,82 +421,6 @@ int main(int argc, char** argv) {
     Eigen::Vector3d eulerXYZ = I_R_L.eulerAngles(0, 1, 2)*180/M_PI;
     ROS_INFO_STREAM("Translation [in m]: " << I_t_L.transpose());
     ROS_INFO_STREAM("Euler Angles [in deg]: " << eulerXYZ.transpose());
-
-    if(params.gen_data_for_optimization) {
-        /// Batch Optimization stuff
-        ros::Time time_surfAss_start = ros::Time::now();
-        /// Surfel Association
-        ROS_INFO_STREAM("[Starting Data Association]");
-        lin_core::SurfelAssociation::Ptr surfelAssociation =
-                std::make_shared<lin_core::SurfelAssociation>(0.05, 0.9);
-        surfelAssociation->setSurfelMap(sys->get_track_lodom()->getNDTPtr(), sys->get_map_time());
-
-        for(int i = 0; i < sys->get_track_lodom()->get_odom_data().size(); i++) {
-            ROS_INFO_STREAM("[Surfel Association] for frame: " << i);
-            std::string raw_scan_filename = params.raw_scan_folder_name+"/"+std::to_string(i+1)+".pcd";
-            std::string deskewed_scaninMap_filename = params.deskewed_scan_folder_name+"/"+std::to_string(i+1)+".pcd";
-            TPointCloud scan_raw;
-            pcl::io::loadPCDFile<TPoint> (raw_scan_filename, scan_raw);
-            VPointCloud scan_inM;
-            pcl::io::loadPCDFile<VPoint> (deskewed_scaninMap_filename, scan_inM);
-            uint64_t scan_timestamp = ros::Time(sys->get_track_lodom()->get_odom_data().at(i).timestamp).toNSec();
-            surfelAssociation->getAssociation(scan_inM.makeShared(), scan_raw.makeShared(), scan_timestamp, i,10);
-        }
-        surfelAssociation->averageTimeDownSample(1);
-        std::cout << "[Surfel Association] Number of surfel points: " << surfelAssociation->get_surfel_points().size() << std::endl;
-        ros::Time time_surfAss_end = ros::Time::now();
-        ROS_INFO_STREAM("[Surfel Association] Time taken in seconds for surfel association: " << time_surfAss_end.toSec() - time_surfAss_start.toSec());
-
-        bool view_surfel_map;
-        nh.param<bool>("view_surfel_map", view_surfel_map, false);
-
-        std::string plane_params_filename;
-        nh.param<std::string>("plane_params_filename", plane_params_filename, "/home/usl/catkin_ws/src/linkalibr/data/plane_params.csv");
-
-        std::string planar_points_raw_scans_filename;
-        nh.param<std::string>("planar_points_raw_scans_filename", planar_points_raw_scans_filename, "/home/usl/catkin_ws/src/linkalibr/data/planar_points_raw_scans.csv");
-        std::ofstream planar_points_raw_scans_filename_csv;
-        planar_points_raw_scans_filename_csv.open(planar_points_raw_scans_filename);
-
-        std::string planar_points_deskewed_map_filename;
-        nh.param<std::string>("planar_points_deskewed_map_filename", planar_points_deskewed_map_filename, "/home/usl/catkin_ws/src/linkalibr/data/planar_points_deskewed_map.csv");
-        std::ofstream planar_points_deskewed_map_filename_csv;
-        planar_points_deskewed_map_filename_csv.open(planar_points_deskewed_map_filename);
-
-        for(int i = 0; i < surfelAssociation->get_surfel_points().size(); i++) {
-            SurfelAssociation::SurfelPoint surfelPoint = surfelAssociation->get_surfel_points().at(i);
-            planar_points_raw_scans_filename_csv << surfelPoint.scan_timestamp << "," << surfelPoint.point_timestamp << "," << surfelPoint.scan_id << ","
-                                   << surfelPoint.plane_id << "," << surfelPoint.point.x() << "," << surfelPoint.point.y() << "," << surfelPoint.point.z() << "\n";
-            planar_points_deskewed_map_filename_csv << surfelPoint.scan_timestamp << "," << surfelPoint.point_timestamp << "," << surfelPoint.scan_id << ","
-                                   << surfelPoint.plane_id << "," << surfelPoint.point_in_map.x() << "," << surfelPoint.point_in_map.y() << "," << surfelPoint.point_in_map.z() << "\n";
-        }
-
-        Eigen::aligned_vector<SurfelAssociation::SurfelPlane> surfel_planes_ = surfelAssociation->get_surfel_planes();
-        lin_core::VPointCloud::Ptr surfel_points(new lin_core::VPointCloud);
-        std::ofstream plane_params_csv_file;
-        plane_params_csv_file.open(plane_params_filename);
-
-        std::string surfel_map_filename;
-        nh.param<std::string>("surfel_map_filename", surfel_map_filename, "/home/usl/catkin_ws/src/linkalibr/data/forOptimization/surfel_map.csv");
-        std::ofstream surfel_map_csv;
-        surfel_map_csv.open(surfel_map_filename);
-
-        for(int i = 0; i < surfel_planes_.size(); i++) {
-            plane_params_csv_file << surfel_planes_[i].p4.x() << "," << surfel_planes_[i].p4.y() << "," << surfel_planes_[i].p4.z() << "," << surfel_planes_[i].p4.w() << "\n";
-            lin_core::VPointCloud inlier_points = surfel_planes_[i].cloud_inlier;
-            for(int j = 0; j < inlier_points.size(); j++) {
-                surfel_points->points.push_back(inlier_points.points[j]);
-                surfel_map_csv << inlier_points.points[j].x << ", " << inlier_points.points[j].y << ", " << inlier_points.points[j].z << std::endl;
-            }
-        }
-        surfel_map_csv.close();
-        if(view_surfel_map) {
-            pcl::visualization::CloudViewer viewer ("Surfel Viewer");
-            viewer.showCloud(surfel_points, "surfel map");
-            while (!viewer.wasStopped ()) {
-            }
-        }
-    }
 
     return EXIT_SUCCESS;
 }
