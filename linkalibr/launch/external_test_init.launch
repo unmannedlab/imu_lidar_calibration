@@ -1,0 +1,28 @@
+<launch>
+
+    <node name="ros_calib_init" pkg="linkalibr" type="ros_calib_init" output="screen" clear_params="true" required="true">
+            <!-- bag topics -->
+            <param name="topic_imu"    type="string" value="/imu/data" />
+            <param name="topic_lidar"    type="string" value="/lidar/parent/points_raw" />
+
+
+            <!-- bag parameters -->
+<!--             <param name="path_bag"    type="string" value="/media/usl/37150acd-8dc7-4336-b1fb-90ffdd3488c5/ouster_vectornav/vectornav@400Hz/linkalibr_ouster_vectornav_data4_400Hz_far.bag" /> -->
+
+            <param name="path_bag"    type="string" value="/home/usl/Downloads/calib1.bag" />
+
+            <param name="bag_start"   type="double" value="0" />
+            <param name="bag_durr"    type="int"    value="-1" />
+
+            <!-- NDT Resolution -->
+            <param name="ndt_resolution" type="double" value="0.25"/>
+    </node>
+
+    <node name="ros_calib_init_optimizer" pkg="linkalibr" type="ros_calib_init_optimizer" output="screen" clear_params="true" required="true">
+            <param name="max_frames"      type="int"   value="400" />
+            <param name="gyroscope_noise_density"      type="double"   value="0.00006243" />
+            <param name="accelerometer_noise_density"  type="double"   value="0.094666" />
+            <param name="calibration_result_filename" type="string" value="/home/usl/catkin_ws/src/imu_lidar_calibration/linkalibr/data/I_T_L_init.txt"/>
+    </node>
+
+</launch>

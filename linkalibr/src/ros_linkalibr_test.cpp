@@ -417,7 +417,8 @@ int main(int argc, char** argv) {
     result_calibration.open(params.calibration_result_filename.c_str());
     result_calibration << I_T_L;
     result_calibration.close();
-
+    std::cout << "I_T_L: " << std::endl;
+    std::cout << I_T_L << std::endl;
     Eigen::Vector3d eulerXYZ = I_R_L.eulerAngles(0, 1, 2)*180/M_PI;
     ROS_INFO_STREAM("Translation [in m]: " << I_t_L.transpose());
     ROS_INFO_STREAM("Euler Angles [in deg]: " << eulerXYZ.transpose());

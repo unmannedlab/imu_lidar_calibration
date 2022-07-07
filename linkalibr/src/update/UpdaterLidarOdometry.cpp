@@ -103,12 +103,14 @@ void UpdaterLidarOdometry::updateScan2Scan(State *current_state, relativePose lo
         }
     }
     /// Update
-    StateHelper::EKFUpdate(current_state, x_order, H_x, res_rot, std::pow(_options.noise_rotation, 2) * Eigen::MatrixXd::Identity(3, 3));
+    StateHelper::EKFUpdate(current_state, x_order, H_x, res_rot,
+                           std::pow(_options.noise_rotation, 2) * Eigen::MatrixXd::Identity(3, 3));
     printf(BOLDGREEN "[Update] successful updateScan2Scan \n" RESET);
     did_update = true;
 }
 
-void UpdaterLidarOdometry::updateScan2GlobalMap(State *current_state, Eigen::Matrix4d L1_T_Lk, Eigen::Matrix4d G_T_I1, double timestamp, bool& did_update) {
+void UpdaterLidarOdometry::updateScan2GlobalMap(State *current_state, Eigen::Matrix4d L1_T_Lk, Eigen::Matrix4d G_T_I1,
+                                                double timestamp, bool& did_update) {
     /// Initial IMU pose
     Eigen::Matrix<double, 3, 3> G_R_I1 = G_T_I1.block(0, 0, 3, 3);
     Eigen::Matrix<double, 3, 1> G_t_I1 = G_T_I1.block(0, 3, 3, 1);

@@ -8,9 +8,13 @@
         <param name="topic_lidar"  type="string" value="/os_cloud_node/points" />
 
         <!-- bag parameters -->
-<!--             <param name="path_bag"    type="string" value="/media/usl/37150acd-8dc7-4336-b1fb-90ffdd3488c5/ouster_vectornav/vectornav@400Hz/linkalibr_ouster_vectornav_data4_400Hz_far.bag" /> -->
+<!--         <param name = "path_bag" type="string" value="/media/usl/Untitled/Subodh/usl-data/camera_imu_lidar/2022-01-28-15-06-51.bag"/> -->
+<!--         <param name = "path_bag" type="string" value="/media/usl/Untitled/Subodh/usl-data/camera_imu_lidar/2022-01-28-15-11-20.bag"/> -->
+<!--         <param name = "path_bag" type="string" value="/media/usl/Untitled/Subodh/usl-data/camera_imu_lidar/2022-01-28-15-15-06.bag"/> -->
+<!--         <param name = "path_bag" type="string" value="/media/usl/Untitled/Subodh/usl-data/camera_imu_lidar/2022-01-28-15-20-21.bag"/> -->
+<!--         <param name = "path_bag" type="string" value="/media/usl/Untitled/Subodh/usl-data/camera_imu_lidar/2022-01-28-15-30-47.bag"/> -->
 
-         <param name="path_bag"    type="string" value="/media/usl/78AA8670308DA038/2021-04-16-10-32-05_far.bag" />
+<!--         <param name="path_bag"    type="string" value="/home/usl/Downloads/2021-04-16-10-32-05_far.bag" /> -->
 
         <param name="bag_start"   type="double" value="0.0" />
         <param name="bag_durr"    type="int"    value="-1" />
@@ -29,12 +33,15 @@
         <param name="init_imu_thresh" type="double" value="0.25"/> <!-- jerk threshold -->
 
         <!-- Noise Parameters -->
-<!--         <param name="accelerometer_noise_density"  type="double"   value="0.00094666" /> -->
-<!--         <param name="accelerometer_random_walk"    type="double"   value="0.00278617" /> -->
-        <param name="accelerometer_noise_density"  type="double"   value="0.094666" />
-        <param name="accelerometer_random_walk"    type="double"   value="0.278617" />
-        <param name="gyroscope_noise_density"      type="double"   value="0.00006243" />
-        <param name="gyroscope_random_walk"        type="double"   value="0.00000046" />
+<!--         <param name="accelerometer_noise_density"  type="double"   value="0.094666" /> -->
+<!--         <param name="accelerometer_random_walk"    type="double"   value="0.278617" /> -->
+<!--         <param name="gyroscope_noise_density"      type="double"   value="0.00006243" /> -->
+<!--         <param name="gyroscope_random_walk"        type="double"   value="0.00000046" /> -->
+
+        <param name="accelerometer_noise_density"  type="double"   value="0.0015825749257056074" />
+        <param name="accelerometer_random_walk"    type="double"   value="4.1557212532459854e-05" />
+        <param name="gyroscope_noise_density"      type="double"   value="8.97991030686202e-05" />
+        <param name="gyroscope_random_walk"        type="double"   value="7.253101866424753e-07" />
 
         <!-- Updater Parameters -->
         <!-- Chi2 Parameters -->
@@ -60,11 +67,11 @@
         <param name="calib_lidarimu_dt" type="double" value="0.0" />
 
         <!-- params determining map size -->
-        <param name="limit_map_size" type="bool" value="true"/>
-        <param name="no_of_scans_for_map" type="int" value="200"/>
+        <param name="limit_map_size" type="bool" value="false"/>
+        <param name="no_of_scans_for_map" type="int" value="400"/>
 
         <!-- params for downsampling clouds before mapping -->
-        <param name="downsample_for_mapping" type="bool" value="true"/>
+        <param name="downsample_for_mapping" type="bool" value="false"/>
 
         <!-- initial calibration file -->
         <param name="init_calibration_result_filename" type="string" value="$(find linkalibr)/data/I_T_L_init.txt"/>
@@ -89,13 +96,12 @@
 
         <!-- Write an output -->
         <param name="calibration_result_filename" type="string" value="/home/usl/catkin_ws/src/imu_lidar_calibration/linkalibr/data/I_T_L_final.txt"/>
+        <param name="gen_map_data" type="bool" value="true"/>
+        <param name="map_csv_file_name" type="string" value="/home/usl/catkin_ws/src/imu_lidar_calibration/linkalibr/data/map.csv"/>
 
        <!-- location to store cloud -->
        <param name="raw_scan_folder_name" type="string" value="/home/usl/catkin_ws/src/linkalibr/scans/raw"/>
        <param name="deskewed_scan_folder_name" type="string" value="/home/usl/catkin_ws/src/linkalibr/scans/deskewed"/>
-
-       <!-- params for batch optimization -->
-       <param name="gen_data_for_optimization" type="bool" value="false"/>
 
        <param name="plane_params_filename" type="string" value="/home/usl/catkin_ws/src/linkalibr/data/forOptimization/plane_params.csv"/>
        <param name="planar_points_raw_scans_filename" type="string" value="/home/usl/catkin_ws/src/linkalibr/data/forOptimization/planar_points_raw_scans.csv"/>
@@ -106,8 +112,6 @@
        <param name="imu_trajectory_filename" type="string" value="/home/usl/catkin_ws/src/linkalibr/data/forOptimization/imu_trajectory.csv"/>
        <param name="lidar_trajectory_filename" type="string" value="/home/usl/catkin_ws/src/linkalibr/data/forOptimization/lidar_trajectory.csv"/>
 
-       <param name="view_surfel_map" type="bool" value="true"/>
     </node>
 
 </launch>
-
